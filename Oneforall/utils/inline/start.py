@@ -51,7 +51,7 @@ def private_panel(_):
             # Profile - Blue (PRIMARY)
             btn("ᴇʀᴇɴ ʏᴇᴀɢᴇʀ", url="https://t.me/toxication_infinity", style=ButtonStyle.PRIMARY),
             # Support - Default (Grey)
-            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=ButtonStyle.DEFAULT),
+            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=ButtonStyle.SUCCESS),
         ],
         [
             # Help/Settings - Blue (PRIMARY)
