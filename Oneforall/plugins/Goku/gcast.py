@@ -13,7 +13,7 @@ from Oneforall.utils.database import get_served_chats, get_served_users
 
 pros = mongodb.pro
 protimes = mongodb.protime
-IS_BROADCASTING = False
+IS_BROADCASTING = True
 
 
 async def log_pro_broadcast_usage(user_id):
