@@ -1,51 +1,37 @@
 import random
 from hydrogram.types import InlineKeyboardButton
-from hydrogram.enums import ButtonStyle
+# ButtonStyle import karne ki zaroorat nahi hai
 import config
 from Oneforall import app
 
-# Premium Stickers IDs (Alag-alag buttons ke liye)
-STICKERS = [
-    6312260233171312151, 5433824103134530018, 5431445213233261748, 
-    5431718873433095333, 5443003051411513631, 5431634752706954211
-]
+# Premium Stickers IDs
+STICKERS = [6312260233171312151, 5433824103134530018, 5431445213233261748]
 
-def btn(text, style=ButtonStyle.DEFAULT, **kwargs):
+def btn(text, style=None, **kwargs):
     premium_id = random.choice(STICKERS)
     return InlineKeyboardButton(
         text=text,
         icon_custom_emoji_id=premium_id,
-        style=style,
+        style=style, # Yahan direct number (1-4) jayega
         **kwargs
     )
 
 def start_panel(_):
-    buttons = [
-        [
-            btn(_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true", style=ButtonStyle.SUCCESS), # GREEN
-            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=ButtonStyle.PRIMARY), # BLUE
-        ],
-    ]
-    return buttons
+    return [[
+        btn(_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true", style=2), # 2 = Green
+        btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=1), # 1 = Blue
+    ]]
 
 def private_panel(_):
-    buttons = [
+    return [
+        [btn(_["S_B_3"], url=f"https://t.me/{app.username}?startgroup=true", style=2)],
         [
-            btn(_["S_B_3"], url=f"https://t.me/{app.username}?startgroup=true", style=ButtonStyle.SUCCESS) # GREEN
+            btn("ᴇʀᴇɴ ʏᴇᴀɢᴇʀ", url="https://t.me/toxication_infinity", style=1),
+            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=1), 
         ],
+        [btn(_["S_B_4"], callback_data="settings_back_helper", style=3)], # 3 = Orange
         [
-            btn("ᴇʀᴇɴ ʏᴇᴀɢᴇʀ", url="https://t.me/toxication_infinity", style=ButtonStyle.PRIMARY), # BLUE
-            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=ButtonStyle.SECONDARY if hasattr(ButtonStyle, 'SECONDARY') else ButtonStyle.PRIMARY), 
-        ],
-        [
-            btn(_["S_B_4"], callback_data="settings_back_helper", style=ButtonStyle.WARNING) # YELLOW/ORANGE
-        ],
-        [
-            btn(_["S_B_6"], url=config.SUPPORT_CHANNEL, style=ButtonStyle.DANGER), # RED
-            btn(_["S_B_5"], url="https://t.me/docker_git_bit", style=ButtonStyle.PRIMARY) # BLUE
-        ],
-        [
-            btn("「 ⌯ ᴜᴘᴘєʀϻσσɴ ᴛᴜηєꜱ ⌯ 」", url="https://uppermooninfinity.jo3.org/", style=ButtonStyle.SUCCESS) # GREEN
+            btn(_["S_B_6"], url=config.SUPPORT_CHANNEL, style=4), # 4 = Red
+            btn(_["S_B_5"], url="https://t.me/docker_git_bit", style=1)
         ],
     ]
-    return buttons
