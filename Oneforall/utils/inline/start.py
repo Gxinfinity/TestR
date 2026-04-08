@@ -36,7 +36,7 @@ def start_panel(_):
             # Add to Group - Green (SUCCESS)
             btn(_["S_B_1"], url=f"https://t.me/{app.username}?startgroup=true", style=ButtonStyle.SUCCESS),
             # Support - Blue (PRIMARY)
-            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=ButtonStyle.PRIMARY),
+            btn(_["S_B_2"], url=config.SUPPORT_CHAT, style=ButtonStyle.DANGER),
         ],
     ]
     return buttons
