@@ -1,34 +1,43 @@
 from os import path
-
 import yt_dlp
 
-ytdl = yt_dlp.YoutubeDL(
-    {
-        "outtmpl": "downloads/%(id)s.%(ext)s",
-        "format": "bestaudio[ext=m4a]",
-        "geo_bypass": True,
-        "nocheckcertificate": True,
-    }
-)
+ytdl = yt_dlp.YoutubeDL({
+    "outtmpl": "downloads/%(id)s.%(ext)s",
+    "format": "bestaudio/best",
+    "geo_bypass": True,
+    "nocheckcertificate": True,
+})
 
 
 def download(url: str, my_hook) -> str:
+    # 👉 name support
+    if not url.startswith("http"):
+        url = f"ytsearch1:{url}"
+
     ydl_optssx = {
-        "format": "bestaudio[ext=m4a]",
+        "format": "bestaudio/best",
         "outtmpl": "downloads/%(id)s.%(ext)s",
         "geo_bypass": True,
         "nocheckcertificate": True,
         "quiet": True,
         "no_warnings": True,
     }
-    info = ytdl.extract_info(url, False)
+
     try:
         x = yt_dlp.YoutubeDL(ydl_optssx)
         x.add_progress_hook(my_hook)
-        dloader = x.download([url])
+
+        # 🔥 extract + download together
+        info = x.extract_info(url, download=True)
+
+        # 👉 search case handle
+        if "entries" in info:
+            info = info["entries"][0]
+
     except Exception as y_e:
-        return print(y_e)
-    else:
-        dloader
-    xyz = path.join("downloads", f"{info['id']}.{info['ext']}")
+        print(y_e)
+        return None
+
+    # ✅ correct file path
+    xyz = x.prepare_filename(info)
     return xyz
