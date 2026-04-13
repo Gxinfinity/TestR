@@ -1,12 +1,11 @@
-FROM python:3.10-slim-buster
+FROM python:3.10-slim-bookworm
 
-# System dependencies aur ffmpeg install karne ke liye
-RUN apt-get update && apt-get install -y \
+# System dependencies install karein (Bookworm repositories ke saath)
+RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     git \
     gcc \
     python3-dev \
-    musl-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
