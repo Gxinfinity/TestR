@@ -1,4 +1,4 @@
-Telethon==1.33.1
+telethon==1.33.1
 aiofiles
 apscheduler
 aiohttp==3.9.3
@@ -13,7 +13,7 @@ wget
 qrcode
 future==0.18.3
 search_engine_parser
-speedtest-cli
+speedtest
 py-tgcalls==1.2.9
 MukeshAPI
 ntgcalls==1.1.2
@@ -28,11 +28,12 @@ lexica-api==1.4.7
 httpx==0.25.2
 lyricsgenius
 spotipy
+SafoneAPI
 youtube_search
 youtube-search-python
 googlesearch-python
 unidecode
+git+https://github.com/KurimuzonAkuma/kurigram.git
+git+https://github.com/AsmSafone/SafoneAPI
 bing_image_downloader
 gpytranslate
-git+https://github.com/AsmSafone/SafoneAPI
-kurigram @ https://github.com/KurimuzonAkuma/kurigram/archive/v2.1.23.zip
