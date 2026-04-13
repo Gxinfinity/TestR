@@ -36,4 +36,4 @@ unidecode
 bing_image_downloader
 gpytranslate
 git+https://github.com/AsmSafone/SafoneAPI
-kurigram @ https://github.com/KurimuzonAkuma/kurigram/archive/v2.1.23.zip
+kurigram@https://github.com/KurimuzonAkuma/kurigram/archive/v2.1.23.zip
