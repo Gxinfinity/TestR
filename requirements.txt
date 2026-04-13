@@ -1,8 +1,7 @@
-telethon==1.33.1
+Telethon==1.33.1
 aiofiles
 apscheduler
 aiohttp==3.9.3
-asyncio==3.4.3
 gTTS
 dnspython==2.3.0
 hachoir
@@ -14,7 +13,7 @@ wget
 qrcode
 future==0.18.3
 search_engine_parser
-speedtest
+speedtest-cli
 py-tgcalls==1.2.9
 MukeshAPI
 ntgcalls==1.1.2
@@ -34,9 +33,7 @@ youtube_search
 youtube-search-python
 googlesearch-python
 unidecode
-#git+https://github.com/joetats/youtube_search@master
-#git+https://github.com/alexmercerind/youtube-search-python@main
-https://github.com/KurimuzonAkuma/kurigram/archive/v2.1.23.zip
-git+https://github.com/AsmSafone/SafoneAPI
 bing_image_downloader
 gpytranslate
+git+https://github.com/AsmSafone/SafoneAPI
+kurigram @ https://github.com/KurimuzonAkuma/kurigram/archive/v2.1.23.zip
